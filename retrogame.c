@@ -355,7 +355,7 @@ int main(int argc, char *argv[]) {
 			// Set pin to input, detect rise+fall events
 			if(pinConfig(io[i].pin, "direction", "in") ||
 			   pinConfig(io[i].pin, "edge"     , "both"))
-				err("Pin config failed");
+				{ printf("Cannot config pin %d\n",io[i].pin); err("Pin config failed"); }
 			// Get initial pin value
 			sprintf(buf, "%s/gpio%d/value",
 			  sysfs_root, io[i].pin);
